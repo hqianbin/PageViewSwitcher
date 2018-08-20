@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CommonViewSwitcher">
+
+        <!-- A drawable to use as the background of the Refreshable View -->
+        <attr name="inflatedLayout" format="reference" />
+        <attr name="duration" format="reference|integer" />
+    </declare-styleable>
+
+</resources>

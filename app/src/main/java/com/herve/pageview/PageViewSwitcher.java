@@ -4,36 +4,31 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.ViewSwitcher;
+import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 
 /**
  * Created by Administrator on 2017/8/19.
  */
-public class PageViewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewFactory {
+public class PageViewSwitcher extends CommonViewSwitcher<PageBean> {
 
-    private final int DURATION_DEFAULT = 400;
-    private int mDuration = DURATION_DEFAULT;
-
-    Animation inPullDown, outPullDown, inPullUp, outPullUp;
-
-    protected Context mContext;
+    /**数据中第pos个*/
     private int pos;
+
+    public void setPos(int index){
+        this.pos = index;
+    }
 
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if(msg.obj != null && msg.obj instanceof PageBean){
-                bindData((PageBean) msg.obj);
+                bindData(getCurrentView(), (PageBean) msg.obj);
             }
         }
     };
@@ -44,43 +39,6 @@ public class PageViewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewF
 
     public PageViewSwitcher(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mContext = context;
-        setFactory(this);
-        init();
-    }
-
-    private void init(){
-        post(new Runnable() {
-            @Override
-            public void run() {
-                int height = getHeight();
-                inPullUp = new TranslateAnimation(0, 0, height, 0);
-                inPullUp.setDuration(mDuration);
-                inPullUp.setInterpolator(new AccelerateInterpolator());
-                outPullUp = new TranslateAnimation(0, 0, 0, -height);
-                outPullUp.setDuration(mDuration);
-                outPullUp.setInterpolator(new AccelerateInterpolator());
-
-                inPullDown = new TranslateAnimation(0, 0, -height, 0);
-                inPullDown.setDuration(mDuration);
-                inPullDown.setInterpolator(new AccelerateInterpolator());
-                outPullDown = new TranslateAnimation(0, 0, 0, height);
-                outPullDown.setDuration(mDuration);
-                outPullDown.setInterpolator(new AccelerateInterpolator());
-            }
-        });
-    }
-
-    @Override
-    public View makeView() {
-        PullToRefreshPageScrollView view = (PullToRefreshPageScrollView) View.inflate(mContext, R.layout.include_page_view_switcher, null);
-        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-        layoutParams.gravity = Gravity.CENTER_VERTICAL;
-        view.setMode(PullToRefreshBase.Mode.BOTH);
-        view.setLayoutParams(layoutParams);
-
-        return view;
     }
 
     private void refreshView(View view){
@@ -103,12 +61,18 @@ public class PageViewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewF
         }
     }
 
-    public void bindData(PageBean bean){
-        View view = getCurrentView();
+    public void bindData(View view, PageBean bean){
         ((TextView)view.findViewById(R.id.tv_1st)).setText(bean.name);
         ((TextView)view.findViewById(R.id.tv_2nd)).setText(bean.code);
         ((TextView)view.findViewById(R.id.tv_3rd)).setText(bean.upDown);
+        view.findViewById(R.id.ll_content).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "第" + pos + "个", Toast.LENGTH_SHORT).show();
+            }
+        });
         if(view instanceof PullToRefreshPageScrollView) {
+            ((PullToRefreshPageScrollView) view).setMode(PullToRefreshBase.Mode.BOTH);
             if (pos == 0) {
                 setLabel(view, PullToRefreshBase.Mode.PULL_FROM_START, "不能向上翻页了", "不能向上翻页了", "不能向上翻页了");
                 setLabel(view, PullToRefreshBase.Mode.PULL_FROM_END, "上拉查看下一页", "松开查看下一页", "松开查看下一页");

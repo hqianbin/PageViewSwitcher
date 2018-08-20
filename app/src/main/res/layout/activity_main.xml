@@ -16,12 +16,28 @@
         android:textSize="18sp"
         android:textColor="#FFFFFF"/>
 
+    <com.herve.pageview.MarqueeViewSwitcher
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/marquee_view_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/header_red_gradient_bg"
+        app:inflatedLayout="@layout/include_marquee_view_switcher">
+
+    </com.herve.pageview.MarqueeViewSwitcher>
+
+
     <com.herve.pageview.PageViewSwitcher
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/page_view_switcher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:inflatedLayout="@layout/include_page_view_switcher">
 
     </com.herve.pageview.PageViewSwitcher>
 

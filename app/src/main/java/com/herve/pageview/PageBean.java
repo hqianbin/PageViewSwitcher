@@ -8,4 +8,13 @@ public class PageBean {
     public String name;
     public String code;
     public String upDown;
+
+    public PageBean(){
+
+    }
+
+    public PageBean(String name, String code){
+        this.name = name;
+        this.code = code;
+    }
 }
