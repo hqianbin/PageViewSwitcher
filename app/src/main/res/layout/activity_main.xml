@@ -25,14 +25,14 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:background="@drawable/header_red_gradient_bg"
-        app:inflatedLayout="@layout/include_marquee_view_switcher">
+        app:inflatedLayout="@layout/include_marquee_view_switcher"
+        app:duration="500">
 
     </com.herve.pageview.MarqueeViewSwitcher>
 
 
     <com.herve.pageview.PageViewSwitcher
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/page_view_switcher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
