@@ -89,6 +89,20 @@ public class PageViewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewF
         ((TextView)view.findViewById(R.id.tv_3rd)).setText("--");
     }
 
+    private void setLabel(View view, PullToRefreshBase.Mode mode, String... strs){
+        if(view instanceof PullToRefreshBase) {
+            if (strs != null && strs.length > 0) {
+                ((PullToRefreshBase)view).setPullLabel(strs[0], mode);
+            }
+            if (strs != null && strs.length > 1) {
+                ((PullToRefreshBase)view).setReleaseLabel(strs[1], mode);
+            }
+            if (strs != null && strs.length > 2) {
+                ((PullToRefreshBase)view).setRefreshingLabel(strs[2], mode);
+            }
+        }
+    }
+
     public void bindData(PageBean bean){
         View view = getCurrentView();
         ((TextView)view.findViewById(R.id.tv_1st)).setText(bean.name);
@@ -96,29 +110,14 @@ public class PageViewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewF
         ((TextView)view.findViewById(R.id.tv_3rd)).setText(bean.upDown);
         if(view instanceof PullToRefreshPageScrollView) {
             if (pos == 0) {
-                ((PullToRefreshPageScrollView) view).setPullLabel("不能向上翻页了", PullToRefreshBase.Mode.PULL_FROM_START);
-                ((PullToRefreshPageScrollView) view).setRefreshingLabel("不能向上翻页了", PullToRefreshBase.Mode.PULL_FROM_START);
-                ((PullToRefreshPageScrollView) view).setReleaseLabel("不能向上翻页了", PullToRefreshBase.Mode.PULL_FROM_START);
-
-                ((PullToRefreshPageScrollView) view).setPullLabel("上拉查看下一页", PullToRefreshBase.Mode.PULL_FROM_END);
-                ((PullToRefreshPageScrollView) view).setRefreshingLabel("松开查看下一页", PullToRefreshBase.Mode.PULL_FROM_END);
-                ((PullToRefreshPageScrollView) view).setReleaseLabel("松开查看下一页", PullToRefreshBase.Mode.PULL_FROM_END);
+                setLabel(view, PullToRefreshBase.Mode.PULL_FROM_START, "不能向上翻页了", "不能向上翻页了", "不能向上翻页了");
+                setLabel(view, PullToRefreshBase.Mode.PULL_FROM_END, "上拉查看下一页", "松开查看下一页", "松开查看下一页");
             }else if(pos == 5){
-                ((PullToRefreshPageScrollView) view).setPullLabel("下拉查看上一页", PullToRefreshBase.Mode.PULL_FROM_START);
-                ((PullToRefreshPageScrollView) view).setRefreshingLabel("松开查看上一页", PullToRefreshBase.Mode.PULL_FROM_START);
-                ((PullToRefreshPageScrollView) view).setReleaseLabel("松开查看上一页", PullToRefreshBase.Mode.PULL_FROM_START);
-
-                ((PullToRefreshPageScrollView) view).setPullLabel("已滑到底部了", PullToRefreshBase.Mode.PULL_FROM_END);
-                ((PullToRefreshPageScrollView) view).setRefreshingLabel("已滑到底部了", PullToRefreshBase.Mode.PULL_FROM_END);
-                ((PullToRefreshPageScrollView) view).setReleaseLabel("已滑到底部了", PullToRefreshBase.Mode.PULL_FROM_END);
+                setLabel(view, PullToRefreshBase.Mode.PULL_FROM_START, "下拉查看上一页", "松开查看上一页", "松开查看上一页");
+                setLabel(view, PullToRefreshBase.Mode.PULL_FROM_END, "已滑到底部了", "已滑到底部了", "已滑到底部了");
             }else {
-                ((PullToRefreshPageScrollView) view).setPullLabel("下拉查看上一页", PullToRefreshBase.Mode.PULL_FROM_START);
-                ((PullToRefreshPageScrollView) view).setRefreshingLabel("松开查看上一页", PullToRefreshBase.Mode.PULL_FROM_START);
-                ((PullToRefreshPageScrollView) view).setReleaseLabel("松开查看上一页", PullToRefreshBase.Mode.PULL_FROM_START);
-
-                ((PullToRefreshPageScrollView) view).setPullLabel("上拉查看下一页", PullToRefreshBase.Mode.PULL_FROM_END);
-                ((PullToRefreshPageScrollView) view).setRefreshingLabel("松开查看下一页", PullToRefreshBase.Mode.PULL_FROM_END);
-                ((PullToRefreshPageScrollView) view).setReleaseLabel("松开查看下一页", PullToRefreshBase.Mode.PULL_FROM_END);
+                setLabel(view, PullToRefreshBase.Mode.PULL_FROM_START, "下拉查看上一页", "松开查看上一页", "松开查看上一页");
+                setLabel(view, PullToRefreshBase.Mode.PULL_FROM_END, "上拉查看下一页", "松开查看下一页", "松开查看下一页");
             }
             ((PullToRefreshPageScrollView) view).setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ScrollView>() {
                 @Override
