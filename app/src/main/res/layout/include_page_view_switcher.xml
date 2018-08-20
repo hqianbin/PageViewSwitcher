@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.herve.pageview.PullToRefreshPageScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbarThumbVertical="@drawable/header_red_gradient_bg"
+    android:scrollbarSize="3dp"
+    android:scrollbars="vertical"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_1st"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+            android:text="--"
+            tools:text="沪"
+            android:textSize="18sp"
+            android:textColor="#97abb7"/>
+
+        <TextView
+            android:id="@+id/tv_2nd"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:paddingLeft="5dp"
+            android:gravity="center"
+            android:background="#999999"
+            android:text="--"
+            tools:text="3379.55\n+0.50 +0.01%"
+            android:textSize="13sp"
+            android:textColor="#DF4242"/>
+
+        <TextView
+            android:id="@+id/tv_3rd"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:paddingLeft="5dp"
+            android:gravity="center"
+            android:text="--"
+            tools:text="3379.55\n+0.50 +0.01%"
+            android:textSize="13sp"
+            android:textColor="#999999"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="#cccccc"/>
+
+    </LinearLayout>
+</com.herve.pageview.PullToRefreshPageScrollView>
