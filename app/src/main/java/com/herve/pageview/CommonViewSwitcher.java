@@ -10,6 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ViewSwitcher;
 
+import com.herve.R;
+
 import java.util.List;
 
 /**

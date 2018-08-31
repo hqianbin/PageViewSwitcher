@@ -1,6 +1,7 @@
 package com.herve.pageview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.herve.R;
+import com.herve.coordinator.CoordinatorLayoutActivity;
 
 /**
  * Created by Administrator on 2017/8/19.
@@ -69,6 +72,7 @@ public class PageViewSwitcher extends CommonViewSwitcher<PageBean> {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "第" + pos + "个", Toast.LENGTH_SHORT).show();
+                mContext.startActivity(new Intent(mContext, CoordinatorLayoutActivity.class));
             }
         });
         if(view instanceof PullToRefreshPageScrollView) {
