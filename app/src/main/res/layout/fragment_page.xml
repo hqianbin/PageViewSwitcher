@@ -1,13 +1,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.loonggg.coordinatorlayoutdemo.PageFragment">
+             android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/lv"
+    <com.herve.coordinator.view.PullToRefreshRecyclerView
+        android:id="@+id/ptr_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"/>
+        android:background="#ffffff"
+        app:ptrOverScroll="false"/>
 </FrameLayout>

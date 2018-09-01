@@ -797,29 +797,32 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 	@Override
 	protected final void onRestoreInstanceState(Parcelable state) {
-		if (state instanceof Bundle) {
-			Bundle bundle = (Bundle) state;
+		try {
+			if (state instanceof Bundle) {
+				Bundle bundle = (Bundle) state;
 
-			setMode(Mode.mapIntToValue(bundle.getInt(STATE_MODE, 0)));
-			mCurrentMode = Mode.mapIntToValue(bundle.getInt(STATE_CURRENT_MODE, 0));
+				setMode(Mode.mapIntToValue(bundle.getInt(STATE_MODE, 0)));
+				mCurrentMode = Mode.mapIntToValue(bundle.getInt(STATE_CURRENT_MODE, 0));
 
-			mScrollingWhileRefreshingEnabled = bundle.getBoolean(STATE_SCROLLING_REFRESHING_ENABLED, false);
-			mShowViewWhileRefreshing = bundle.getBoolean(STATE_SHOW_REFRESHING_VIEW, true);
+				mScrollingWhileRefreshingEnabled = bundle.getBoolean(STATE_SCROLLING_REFRESHING_ENABLED, false);
+				mShowViewWhileRefreshing = bundle.getBoolean(STATE_SHOW_REFRESHING_VIEW, true);
 
-			// Let super Restore Itself
-			super.onRestoreInstanceState(bundle.getParcelable(STATE_SUPER));
+				// Let super Restore Itself
+				super.onRestoreInstanceState(bundle.getParcelable(STATE_SUPER));
 
-			State viewState = State.mapIntToValue(bundle.getInt(STATE_STATE, 0));
-			if (viewState == State.REFRESHING || viewState == State.MANUAL_REFRESHING) {
-				setState(viewState, true);
+				State viewState = State.mapIntToValue(bundle.getInt(STATE_STATE, 0));
+				if (viewState == State.REFRESHING || viewState == State.MANUAL_REFRESHING) {
+					setState(viewState, true);
+				}
+
+				// Now let derivative classes restore their state
+				onPtrRestoreInstanceState(bundle);
+				return;
 			}
+			super.onRestoreInstanceState(state);
+		}catch (Exception e) {
 
-			// Now let derivative classes restore their state
-			onPtrRestoreInstanceState(bundle);
-			return;
 		}
-
-		super.onRestoreInstanceState(state);
 	}
 
 	@Override
