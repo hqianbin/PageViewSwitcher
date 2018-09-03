@@ -2,6 +2,8 @@ package com.herve.coordinator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +48,19 @@ public class PageFragment extends Fragment {
         }
         lv.setAdapter(new MyAdapter(list));
 
+        lv.getRefreshableView().addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                Log.d("====RecyclerView", "newState=" + newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                Log.d("====RecyclerView", "dy=" + dy);
+            }
+        });
         return view;
     }
 }

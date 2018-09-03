@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +21,12 @@ public class CoordinatorLayoutActivity extends FragmentActivity {
     private ViewPager main_vp_container;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
     private CoordinatorLayout root_layout;
+
+    private int offset;
+
+    public int getOffset(){
+        return offset;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +49,13 @@ public class CoordinatorLayoutActivity extends FragmentActivity {
         app_bar_layout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                offset = verticalOffset;
                 if (verticalOffset <= -head_layout.getHeight() / 2) {
-                    mCollapsingToolbarLayout.setTitle("涩郎");
+                    if(TextUtils.isEmpty(mCollapsingToolbarLayout.getTitle()) || !mCollapsingToolbarLayout.getTitle().equals("涩郎")) {
+                        mCollapsingToolbarLayout.setTitle("涩郎");
+                    }
                 } else {
-                    mCollapsingToolbarLayout.setTitle(" ");
+                    mCollapsingToolbarLayout.setTitle("");
                 }
             }
         });

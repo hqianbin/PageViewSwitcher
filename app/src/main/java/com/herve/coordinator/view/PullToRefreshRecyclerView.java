@@ -23,6 +23,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.handmark.pulltorefresh.library.BuildConfig;
@@ -51,6 +52,16 @@ public class PullToRefreshRecyclerView extends PullToRefreshBase<RecyclerView> {
 	@Override
 	public final Orientation getPullToRefreshScrollDirection() {
 		return Orientation.VERTICAL;
+	}
+
+	@Override
+	public final boolean onInterceptTouchEvent(MotionEvent event) {
+		if(event.getAction() == MotionEvent.ACTION_DOWN){
+			if(isReadyForPullStart() || isReadyForPullEnd()){
+				getRefreshableView().stopScroll();
+			}
+		}
+		return super.onInterceptTouchEvent(event);
 	}
 
 	@Override
