@@ -10,5 +10,7 @@ CoordinatorLayout与PullToRefreshBase,ViewPager, RecyclerView结合实现效果
 
 展示效果图：<br />
 ![img](https://github.com/hqianbin/PageViewSwitcher/blob/master/extra/PageSwitcher.gif)
-<br />
+
+============================================================================================
+
 ![img](https://github.com/hqianbin/PageViewSwitcher/blob/master/extra/CoordinatorLayout.gif)
