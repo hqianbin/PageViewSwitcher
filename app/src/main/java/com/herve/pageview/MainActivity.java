@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.herve.R;
+import com.herve.coordinator.BlurUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,12 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            BlurUtil.setTranslateStatusBar(this, R.id.v_status_bar);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
 
         marqueeViewSwitcher = (MarqueeViewSwitcher)findViewById(R.id.marquee_view_switcher);
         List<PageBean> beans = new ArrayList<>();

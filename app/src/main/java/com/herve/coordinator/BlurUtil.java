@@ -1,7 +1,16 @@
 package com.herve.coordinator;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Build;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 /**
  * Created by loongggdroid on 2016/5/12.
@@ -323,5 +332,48 @@ public class BlurUtil {
 
         return (bitmap);
 
+    }
+
+
+    public static void setTranslateStatusBar(Activity activity, int topId) {
+        View status_bar = activity.findViewById(topId);// 标题栏id
+        if (status_bar != null) {
+            setTranslateStatusBar(activity, status_bar);
+        }
+    }
+
+    public static void setTranslateStatusBar(Activity activity, View view) {
+        // 4.4以上处理
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) { // android
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);// 状态栏透明
+            if (view != null) {
+                ViewGroup.LayoutParams params = view.getLayoutParams();
+                params.height = getStatusBarHeight(activity);
+                view.setLayoutParams(params);
+            }
+        }
+
+        //5.0 以上处理
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = activity.getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
+    }
+
+    public static int getStatusBarHeight(Context context) {
+        int result = 0;
+        int resourceId = context.getResources().getIdentifier("status_bar_height",
+                "dimen", "android");
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+    public static int dp2px(float dpVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpVal, Resources.getSystem().getDisplayMetrics());
     }
 }

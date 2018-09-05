@@ -10,10 +10,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.herve.R;
+import com.herve.coordinator.view.CenterImageSpan;
 
 public class CoordinatorLayoutActivity extends FragmentActivity {
     private LinearLayout head_layout;
@@ -32,8 +36,19 @@ public class CoordinatorLayoutActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_coordinator);
+
+        try {
+            BlurUtil.setTranslateStatusBar(this, R.id.v_status_bar);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
         AppBarLayout app_bar_layout = (AppBarLayout) findViewById(R.id.app_bar_layout);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        CollapsingToolbarLayout.LayoutParams params = (CollapsingToolbarLayout.LayoutParams)mToolbar.getLayoutParams();
+        params.height = BlurUtil.getStatusBarHeight(this) + BlurUtil.dp2px(40);
+        mToolbar.setLayoutParams(params);
+        mToolbar.setPadding(0,BlurUtil.getStatusBarHeight(this),0,0);
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,16 +58,17 @@ public class CoordinatorLayoutActivity extends FragmentActivity {
         });
         head_layout = (LinearLayout) findViewById(R.id.head_layout);
         root_layout = (CoordinatorLayout) findViewById(R.id.root_layout);
-        //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
-        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id
-                .collapsing_toolbar_layout);
+
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
+        mCollapsingToolbarLayout.setExpandedTitleMarginTop(BlurUtil.getStatusBarHeight(this));
+
         app_bar_layout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 offset = verticalOffset;
                 if (verticalOffset <= -head_layout.getHeight() / 2) {
-                    if(TextUtils.isEmpty(mCollapsingToolbarLayout.getTitle()) || !mCollapsingToolbarLayout.getTitle().equals("涩郎")) {
-                        mCollapsingToolbarLayout.setTitle("涩郎");
+                    if(TextUtils.isEmpty(mCollapsingToolbarLayout.getTitle()) || !mCollapsingToolbarLayout.getTitle().equals("首页动态")) {
+                        mCollapsingToolbarLayout.setTitle("首页动态");
                     }
                 } else {
                     mCollapsingToolbarLayout.setTitle("");
@@ -68,12 +84,14 @@ public class CoordinatorLayoutActivity extends FragmentActivity {
                 (toolbar_tab));
         toolbar_tab.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener
                 (main_vp_container));
-        //tablayout和viewpager建立联系为什么不用下面这个方法呢？自己去研究一下，可能收获更多
-        //toolbar_tab.setupWithViewPager(main_vp_container);
-        loadBlurAndSetStatusBar();
 
-        ImageView head_iv = (ImageView) findViewById(R.id.head_iv);
-        head_iv.setImageResource(R.mipmap.bg);
+        ((TextView)findViewById(R.id.tv_activity_1st)).setText(UtilsSpannable.style("# 万2.5开户", "#",
+                new CenterImageSpan(this, R.mipmap.trade_ad_hk)));
+        ((TextView)findViewById(R.id.tv_activity_2nd)).setText(UtilsSpannable.style("# 港股大赛", "#",
+                new CenterImageSpan(this, R.mipmap.trade_ad_hk)));
+        ((TextView)findViewById(R.id.tv_activity_3rd)).setText(UtilsSpannable.style("# 一键猜涨跌", "#", new CenterImageSpan(this, R.mipmap.trade_ad_hk)));
+
+        loadBlurAndSetStatusBar();
     }
 
     /**

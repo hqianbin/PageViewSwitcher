@@ -43,7 +43,7 @@ public class PageFragment extends Fragment {
         lv.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
 
         List<String> list = new ArrayList<String>();
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= 30; i++) {
             list.add(i + "        " + mPage);
         }
         lv.setAdapter(new MyAdapter(list));

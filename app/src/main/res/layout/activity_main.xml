@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context="com.herve.pageview.MainActivity">
 
+    <View
+        android:id="@+id/v_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/header_red_gradient_bg" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
