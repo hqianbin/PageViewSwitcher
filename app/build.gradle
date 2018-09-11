@@ -1,8 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'qianduoduo'
+            keyPassword 'bjbinghuo321'
+            storeFile file('../sign.keystore')
+            storePassword 'bjbinghuo321'
+        }
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
-
     defaultConfig {
         applicationId "com.herve.pageview"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -10,18 +17,27 @@ android {
         versionCode 1
         versionName "1.0"
     }
-
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+            zipAlignEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            signingConfig signingConfigs.config
+        }
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':pulltorefresh')
     implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
