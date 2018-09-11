@@ -31,7 +31,7 @@
         <TextView
             android:id="@+id/tv_2nd"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="300dp"
             android:paddingLeft="5dp"
             android:gravity="center"
             android:background="#999999"
@@ -43,7 +43,7 @@
         <TextView
             android:id="@+id/tv_3rd"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:paddingLeft="5dp"
             android:gravity="center"
             android:text="--"
