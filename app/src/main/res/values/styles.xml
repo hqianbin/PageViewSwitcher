@@ -22,4 +22,31 @@
 
     </style>
 
+    <declare-styleable name="TabPageIndicatorV2">
+        <attr name="tp_v2_array_id" format="reference" />
+        <attr name="tp_v2_selected_position" format="integer" />
+        <attr name="tp_v2_unselected_text_size" format="float" />
+        <attr name="tp_v2_selected_text_size" format="float" />
+        <attr name="tp_v2_unselected_textcolor" format="reference|color" />
+        <attr name="tp_v2_selected_textcolor" format="reference|color" />
+        <attr name="tp_v2_unselected_background" format="reference|color" />
+        <attr name="tp_v2_selected_background" format="reference|color" />
+        <attr name="tp_v2_bold" format="boolean" />
+        <attr name="tp_v2_show_arrow" format="boolean" />
+        <attr name="tp_v2_arrow_src" format="reference" />
+        <attr name="tp_v2_show_indicator" format="boolean" />
+        <attr name="tp_v2_indicator_width" format="dimension" />
+        <attr name="tp_v2_indicator_height" format="dimension" />
+        <attr name="tp_v2_indicator_marginTop" format="dimension" />
+        <attr name="tp_v2_indicator_src" format="reference" />
+        <attr name="tp_v2_text_gravity" format="enum">
+            <enum name="center" value="0" />
+            <enum name="center_left" value="1" />
+            <enum name="center_right" value="2" />
+            <enum name="center_bottom" value="3" />
+            <enum name="left_bottom" value="4" />
+            <enum name="right_bottom" value="5" />
+        </attr>
+    </declare-styleable>
+
 </resources>

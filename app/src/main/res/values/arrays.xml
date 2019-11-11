@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="financial_equity_type">
+        <item>月</item>
+        <item>半年</item>
+        <item>一年</item>
+        <item>成立来</item>
+    </string-array>
+    <string-array name="financial_solid_type">
+        <item>一年</item>
+        <item>成立以来</item>
+    </string-array>
+
+    <string-array name="asset_manage_normal_types">
+        <item>默认排序</item>
+        <item>风险由低到高</item>
+        <item>风险由高到低</item>
+        <item>起购额由高到低</item>
+        <item>起购额由低到高</item>
+    </string-array>
+    <string-array name="asset_manage_risk_types">
+        <item>全部</item>
+        <item>低风险</item>
+        <item>中等偏低风险</item>
+        <item>中风险</item>
+        <item>中等偏高风险</item>
+        <item>高风险</item>
+    </string-array>
+    <string-array name="asset_manage_amount_types">
+        <item>全部</item>
+        <item>5万元</item>
+        <item>10万元</item>
+        <item>100万元</item>
+        <item>100万元以上</item>
+    </string-array>
+    <string-array name="stare_assistant">
+        <item>自选</item>
+        <item>市场</item>
+    </string-array>
+
+    <string-array name="query_stock_and_office">
+        <item>查个股</item>
+        <item>查营业部</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>人民币</item>
+        <item>美元</item>
+        <item>港币</item>
+    </string-array>
+
+    <string-array name="hot_main">
+        <item>智能助手</item>
+        <item>市场热点</item>
+        <item>直播快讯</item>
+    </string-array>
+
+    <string-array name="repo_tab">
+        <item>深市(1000起)</item>
+        <item>沪市(10万起)</item>
+    </string-array>
+
+    <string-array name="repo_detail">
+        <item>收益率走势</item>
+        <item>收益最高时点</item>
+    </string-array>
+
+    <string-array name="QQ_KXZQ">
+        <item>分时图</item>
+        <item>日线</item>
+        <item>标的</item>
+    </string-array>
+
+    <string-array name="news">
+        <item>盘口</item>
+        <item>新闻公告</item>
+    </string-array>
+
+    <string-array name="KXZQ">
+        <item>分时</item>
+        <item>五日</item>
+        <item>日K</item>
+        <item>周K</item>
+        <item>月K</item>
+        <item>分钟 #</item>
+    </string-array>
+
+    <string-array name="KXZQ_LAND_SCAPE">
+        <item>分时</item>
+        <item>五日</item>
+        <item>日K</item>
+        <item>周K</item>
+        <item>月K</item>
+        <item>1分</item>
+        <item>5分</item>
+        <item>15分</item>
+        <item>30分</item>
+        <item>60分</item>
+        <item>120分</item>
+    </string-array>
+
+    <string-array name="stock_pager_other">
+        <item>动态</item>
+        <item>资金</item>
+        <item>简况(F10)</item>
+        <item>资讯</item>
+    </string-array>
+
+    <string-array name="lv5_chart_header">
+        <item>委托队列</item>
+        <item>分价统计</item>
+    </string-array>
+
+    <string-array name="KXZQFZ">
+        <item>5分钟</item>
+        <item>15分钟</item>
+        <item>30分钟</item>
+        <item>60分钟</item>
+    </string-array>
+    <string-array name="KXZB">
+        <item>成交量</item>
+        <item>MACD指标</item>
+        <item>KDJ指标</item>
+        <item>RSI指标</item>
+        <item>WR指标</item>
+        <item>BOLL叠加</item>
+        <item>DMA指标</item>
+        <item>AROON指标</item>
+        <item>CCI指标</item>
+        <item>SAR指标</item>
+    </string-array>
+
+    <!-- nhp gu piao fen lei -->
+    <string-array name="gpfl">
+        <item>沪深A股</item>
+        <item>上证A股</item>
+        <item>上证B股</item>
+        <item>深证A股</item>
+        <item>深证B股</item>
+        <item>中小板</item>
+        <item>创业板</item>
+        <item>三板A股</item>
+        <item>三板B股</item>
+        <item>沪深B股</item>
+        <item>中小企业</item>
+    </string-array>
+    <string-array name="wdmx">
+        <item>五档</item>
+        <item>明细</item>
+    </string-array>
+    <string-array name="fskx_10">
+        <item>十档</item>
+        <item>逐笔明细</item>
+        <item>委托队列</item>
+        <item>分价统计</item>
+    </string-array>
+    <string-array name="fskx_bs_10">
+        <item>盘口</item>
+        <item>十档</item>
+        <item>逐笔明细</item>
+        <item>委托队列</item>
+        <item>分价统计</item>
+    </string-array>
+    <string-array name="fskx_bs_5">
+        <item>盘口</item>
+        <item>五档</item>
+        <item>明细</item>
+    </string-array>
+    <string-array name="fskx_5">
+        <item>五档</item>
+        <item>明细</item>
+    </string-array>
+    <string-array name="fskx_bs_pk">
+        <item>盘口</item>
+    </string-array>
+    <string-array name="fskx_bs_news">
+        <item>公司</item>
+        <item>新闻</item>
+        <item>公告</item>
+        <item>研报</item>
+    </string-array>
+    <string-array name="fskx_news">
+        <item>盘口</item>
+        <item>公司</item>
+        <item>新闻</item>
+        <item>公告</item>
+        <item>研报</item>
+    </string-array>
+    <string-array name="f10_news">
+        <item>体检</item>
+        <item>资金</item>
+        <item>简况</item>
+        <item>财务</item>
+    </string-array>
+    <string-array name="gptab">
+        <item>沪深</item>
+        <item>板块</item>
+        <item>指数</item>
+        <item>科创板</item>
+        <item>全部</item>
+    </string-array>
+    <string-array name="video_tab">
+        <item>嘉宾介绍</item>
+        <item>内容介绍</item>
+    </string-array>
+    <string-array name="tab_funds_transfer">
+        <item>银行转证券</item>
+        <item>证券转银行</item>
+        <item>转账明细</item>
+    </string-array>
+    <string-array name="tab_cash_sweep">
+        <item>资金归集</item>
+        <item>资金调拨</item>
+        <item>调拨明细</item>
+    </string-array>
+    <string-array name="tab_decrease">
+        <item>减持详情</item>
+        <item>减持记录</item>
+    </string-array>
+    <string-array name="tab_decrease_2">
+        <item>交易记录</item>
+        <item>奖励记录</item>
+    </string-array>
+    <string-array name="blocks">
+        <item>行业板块</item>
+        <item>概念板块</item>
+        <item>地域板块</item>
+    </string-array>
+    <string-array name="blocks_rank_list">
+        <item>涨幅榜</item>
+        <item>跌幅榜</item>
+        <item>换手率榜</item>
+        <item>成交额榜</item>
+    </string-array>
+    <string-array name="tab_header_market">
+        <item>自选</item>
+        <item>市场</item>
+        <item>选股</item>
+    </string-array>
+    <string-array name="asset_head">
+        <item>未签署</item>
+        <item>已签署</item>
+    </string-array>
+    <string-array name="tab_header_index">
+        <item>上证指数</item>
+        <item>深圳指数</item>
+        <item>创业板指</item>
+    </string-array>
+    <string-array name="tab_header_stock_board">
+        <item>盘口</item>
+        <item>资金</item>
+        <item>动态</item>
+    </string-array>
+    <string-array name="tab_similar_date">
+        <item>30天</item>
+        <item>60天</item>
+    </string-array>
+    <string-array name="newstab1">
+        <item>头条</item>
+        <item>宏观</item>
+        <item>个股</item>
+        <item>自选</item>
+        <item>期货</item>
+        <item>基金</item>
+        <item>时事</item>
+    </string-array>
+    <string-array name="trade_cx">
+        <item>资产</item>
+        <item>当日委托</item>
+        <item>当日成交</item>
+        <item>历史成交</item>
+    </string-array>
+    <string-array name="trade_mr_hk">
+        <item>买入</item>
+        <item>卖出</item>
+        <item>撤单</item>
+        <item>持仓</item>
+    </string-array>
+    <string-array name="trade_mr_vote">
+        <item>买入</item>
+        <item>卖出</item>
+        <item>撤单</item>
+        <item>持仓</item>
+    </string-array>
+    <string-array name="trade_mr">
+        <item>买入</item>
+        <item>卖出</item>
+        <item>撤单</item>
+        <item>持仓</item>
+        <item>查询</item>
+    </string-array>
+    <string-array name="trade_rzrq_mr">
+        <item>买入</item>
+        <item>卖出</item>
+        <item>撤单</item>
+        <item>持仓</item>
+        <item>查询</item>
+    </string-array>
+    <string-array name="trade_rzrq_xyzc">
+        <item>综合信息</item>
+        <item>融资信息</item>
+        <item>融券信息</item>
+    </string-array>
+    <string-array name="trade_rzrq_xyzc_zhxx">
+        <item>维持担保比例</item>
+        <item>可用保证金</item>
+        <item>可买担保品资金</item>
+        <item>可还券资金</item>
+        <item>可还款资金</item>
+        <item>已用保证金</item>
+        <item>可用总信用额度</item>
+        <item>已用总信用额度</item>
+        <item>负债总浮盈</item>
+        <item>负债总浮亏</item>
+        <item>总资产</item>
+        <item>总负债</item>
+        <item>净资产</item>
+        <item>可提取资产总额</item>
+        <item>可提取金额</item>
+    </string-array>
+    <string-array name="trade_rzrq_xyzc_rzxx">
+        <item>已用融资额度</item>
+        <item>融资负债</item>
+        <item>融资利息</item>
+        <item>融资当前市值</item>
+        <item>融资浮盈</item>
+        <item>融资浮盈折算</item>
+        <item>融资浮亏</item>
+        <item>融资占用保证金</item>
+        <item>可提取资产总额</item>
+        <item>总负债</item>
+    </string-array>
+    <string-array name="trade_rzrq_xyzc_rqxx">
+        <item>已用融券额度</item>
+        <item>融券负债</item>
+        <item>融券费用</item>
+        <item>融券浮盈</item>
+        <item>融券浮盈折算</item>
+        <item>融券浮亏</item>
+        <item>融券占用保证金</item>
+        <item>可提取金额</item>
+        <item>融券卖出剩余金额</item>
+    </string-array>
+    <string-array name="trade_rzrq_cccx">
+        <item>我的持仓</item>
+        <item>融资负债</item>
+        <item>融券负债</item>
+    </string-array>
+    <string-array name="yhzz_yhye">
+        <item>人民币</item>
+        <item>港币</item>
+        <item>美元</item>
+    </string-array>
+
+    <string-array name="KXFQ">
+        <item>不复权</item>
+        <item>前复权</item>
+    </string-array>
+
+    <string-array name="querys">
+        <item>当日</item>
+        <item>一周内</item>
+        <item>一月内</item>
+        <item>三月内</item>
+        <item>更多</item>
+    </string-array>
+    <string-array name="querys_jgd">
+        <item>一周内</item>
+        <item>一月内</item>
+        <item>三月内</item>
+        <item>更多</item>
+    </string-array>
+    <string-array name="rzrq_dbphz">
+        <item>担保品转入</item>
+        <item>担保品转出</item>
+        <item>划转撤单</item>
+    </string-array>
+    <string-array name="rzrq_zjhk">
+        <item>现金还款</item>
+        <item>按笔还款</item>
+    </string-array>
+    <string-array name="rzrq_dbpcx">
+        <item>担保证券</item>
+        <item>融资标的</item>
+        <item>融券标的</item>
+    </string-array>
+    <string-array name="xgsg_sgrl">
+        <item>申购日历</item>
+        <item>即将上市</item>
+        <item>最新上市</item>
+    </string-array>
+    <string-array name="xgsg_sgxq">
+        <item>发行信息</item>
+        <item>公司信息</item>
+    </string-array>
+
+    <string-array name="userinfo_job">
+        <item>文教科卫专业人员</item>
+        <item>党政(在职,离退休)机关干部</item>
+        <item>企事业单位干部</item>
+        <item>行政企事业单位工人</item>
+        <item>农民</item>
+        <item>个体</item>
+        <item>无业</item>
+        <item>军人</item>
+        <item>学生</item>
+        <item>证券从业人员</item>
+        <item>离退休</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="userinfo_job_commit">
+        <item>文教科卫专业人员</item>
+        <item>党政(在职,离退休)机关干部</item>
+        <item>企事业单位干部</item>
+        <item>行政企事业单位工人</item>
+        <item>农民</item>
+        <item>个体</item>
+        <item>无业</item>
+        <item>军人</item>
+        <item>学生</item>
+        <item>证券从业人员</item>
+        <item>离退休</item>
+    </string-array>
+    <string-array name="userinfo_education">
+        <item>博士</item>
+        <item>硕士</item>
+        <item>学士</item>
+        <item>大专</item>
+        <item>中专</item>
+        <item>高中</item>
+        <item>初中及其以下</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="State">
+        <item>可购买</item>
+        <item>全部</item>
+        <item>即将发售</item>
+    </string-array>
+
+    <string-array name="Risk">
+        <item>低风险</item>
+        <item>中等偏低风险</item>
+        <item>中风险</item>
+        <item>中等偏高风险</item>
+        <item>高风险</item>
+        <item>全部</item>
+    </string-array>
+
+    <string-array name="SaleVolume">
+        <item>5万元</item>
+        <item>10万元</item>
+        <item>100万元</item>
+        <item>全部</item>
+    </string-array>
+
+    <string-array name="Type">
+        <item>收益型</item>
+        <item>净值型</item>
+        <item>全部</item>
+    </string-array>
+
+    <string-array name="Synchronization">
+        <item>导入上一次自选股</item>
+        <item>导入云端自选股</item>
+        <item>导入同花顺自选股</item>
+        <item>导入普通持仓</item>
+        <item>导入信用持仓</item>
+    </string-array>
+
+    <string-array name="trade_reverse">
+        <item>融券回购</item>
+        <item>撤单</item>
+        <item>委托</item>
+        <item>成交</item>
+    </string-array>
+    <string-array name="trade_tabtitles">
+        <item>普通交易</item>
+        <item>融资融券</item>
+    </string-array>
+    <string-array name="trade_login_tabtitles">
+        <item>普通交易</item>
+        <item>信用交易</item>
+    </string-array>
+    <string-array name="messagecenter">
+        <item>重要消息</item>
+        <item>新股申购</item>
+        <item>信息通知</item>
+    </string-array>
+    <string-array name="loanswitchtab">
+        <item>借款</item>
+        <item>还款</item>
+    </string-array>
+    <string-array name="drawswitchtab">
+        <item>取款</item>
+        <item>取款记录</item>
+    </string-array>
+    <string-array name="aggregationswitchtab">
+        <item>观点</item>
+        <item>组合</item>
+    </string-array>
+    <string-array name="newstockswitchtab">
+        <item>申购新股</item>
+        <item>申购可转债</item>
+    </string-array>
+    <string-array name="loanpositiontab">
+        <item>兴易融</item>
+        <item>兴现融</item>
+    </string-array>
+    <string-array name="tylfs">
+        <item>一个月</item>
+        <item>三个月</item>
+        <item>六个月</item>
+        <item>一年内</item>
+    </string-array>
+    <string-array name="fskx_cl">
+        <item>智能投顾策略</item>
+        <item>评价体系</item>
+        <item>历史交易</item>
+    </string-array>
+    <string-array name="signtab">
+        <item>未签署</item>
+        <item>已签署</item>
+    </string-array>
+    <string-array name="level1_tab">
+        <item>五档</item>
+        <item>明细</item>
+    </string-array>
+    <string-array name="level2_tab">
+        <item>十档</item>
+        <item>逐笔明细</item>
+        <item>委托队列</item>
+    </string-array>
+    <string-array name="jtdstab">
+        <item>策略交易动态</item>
+        <item>已订阅列表</item>
+    </string-array>
+    <string-array name="tab_strategy_trade_edit">
+        <item>触底反弹</item>
+        <item>冲高回落</item>
+        <item>止盈止损</item>
+    </string-array>
+    <string-array name="tab_strategy_trade_show">
+        <item>监控中</item>
+        <item>已触发</item>
+        <item>已过期</item>
+    </string-array>
+    <string-array name="newstab">
+        <item>资讯</item>
+        <item>智能资讯</item>
+    </string-array>
+    <string-array name="tgheadertab">
+        <item>组合</item>
+        <item>增值业务</item>
+    </string-array>
+
+    <string-array name="stock_quota">
+        <item>最新</item>
+        <item>涨幅</item>
+        <item>涨跌</item>
+        <item>成交量</item>
+        <item>成交额</item>
+        <item>最高</item>
+        <item>最低</item>
+        <item>换手率</item>
+        <item>市盈率</item>
+        <item>量比</item>
+        <item>委比</item>
+        <item>振幅</item>
+    </string-array>
+
+    <string-array name="portfoliotab">
+        <item>总收益榜</item>
+        <item>月收益榜</item>
+        <item>周收益榜</item>
+        <item>选股榜</item>
+    </string-array>
+
+    <string-array name="lhbstock">
+        <item>涨幅榜</item>
+        <item>活跃榜</item>
+        <item>机构参与榜</item>
+        <item>外资参与榜</item>
+    </string-array>
+    <string-array name="lhbbranch">
+        <item>涨幅榜</item>
+        <item>活跃榜</item>
+        <item>资金榜</item>
+    </string-array>
+    <string-array name="zzgtab">
+        <item>可转债转股</item>
+        <item>债券回售</item>
+    </string-array>
+    <string-array name="kcbcompanytab">
+        <item>审核状态</item>
+        <item>注册地分布</item>
+        <item>行业分布</item>
+    </string-array>
+    <string-array name="condition_order">
+        <item>监控中</item>
+        <item>条件单委托</item>
+        <item>历史记录</item>
+    </string-array>
+    <string-array name="trade_array">
+        <item>普通交易</item>
+        <item>融资融券</item>
+    </string-array>
+</resources>

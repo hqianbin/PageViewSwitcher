@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -18,11 +19,13 @@ import android.widget.TextView;
 
 import com.herve.R;
 import com.herve.coordinator.view.CenterImageSpan;
+import com.herve.coordinator.view.TabPageIndicatorV2;
 
 public class CoordinatorLayoutActivity extends FragmentActivity {
     private LinearLayout head_layout;
-    private TabLayout toolbar_tab;
-    private ViewPager main_vp_container;
+    //private TabLayout toolbar_tab;
+    private TabPageIndicatorV2 tpV2;
+    private ViewPager viewPager;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
     private CoordinatorLayout root_layout;
 
@@ -75,15 +78,27 @@ public class CoordinatorLayoutActivity extends FragmentActivity {
                 }
             }
         });
-        toolbar_tab = (TabLayout) findViewById(R.id.toolbar_tab);
-        main_vp_container = (ViewPager) findViewById(R.id.main_vp_container);
+
+        tpV2 = findViewById(R.id.tp_v2);
+
+//        toolbar_tab = (TabLayout) findViewById(R.id.toolbar_tab);
+        viewPager = (ViewPager) findViewById(R.id.main_vp_container);
 
         ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
-        main_vp_container.setAdapter(vpAdapter);
-        main_vp_container.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener
-                (toolbar_tab));
-        toolbar_tab.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener
-                (main_vp_container));
+        viewPager.setAdapter(vpAdapter);
+//        main_vp_container.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener
+//                (toolbar_tab));
+//        toolbar_tab.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener
+//                (main_vp_container));
+
+        viewPager.setOnPageChangeListener(new HqOnPageChangeListener());
+
+        tpV2.setOnItemClickLisener(new TabPageIndicatorV2.OnItemClickLisener() {
+            @Override
+            public void onItemClickLisener(View view, int position) {
+                viewPager.setCurrentItem(position);
+            }
+        });
 
         ((TextView)findViewById(R.id.tv_activity_1st)).setText(UtilsSpannable.style("# 万2.5开户", "#",
                 new CenterImageSpan(this, R.mipmap.trade_ad_hk)));
@@ -99,5 +114,23 @@ public class CoordinatorLayoutActivity extends FragmentActivity {
      */
     private void loadBlurAndSetStatusBar() {
 
+    }
+
+    class HqOnPageChangeListener implements ViewPager.OnPageChangeListener {
+
+        @Override
+        public void onPageSelected(final int position) {
+            tpV2.setSelectedPosNotLisener(position);
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            tpV2.setIndictorMove(position, positionOffset);
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int index) {
+
+        }
     }
 }
